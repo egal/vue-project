@@ -4,6 +4,13 @@
   </div>
 </template>
 <script>
+export default {
+  name: 'App',
+  data() {
+    return {};
+  },
+  computed: {},
+};
 </script>
 <style lang="scss">
 #app {
