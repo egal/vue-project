@@ -2,23 +2,31 @@
   <div class="layout-container">
     <div class="page-header">
       <e-button size="sm" rounded="true" :style-config="styleConfig">
-        <BootstrapIcon
-            class="button-icon"
-            icon="bell"
-        ></BootstrapIcon>
+        <BootstrapIcon class="button-icon" icon="bell"></BootstrapIcon>
       </e-button>
       <e-avatar name="user name" bgColor="#A0AEC0" isOnline="true"></e-avatar>
     </div>
-    <e-navbar-right :links="links" :logo="require('@/assets/Logo.svg')" :smallLogo="require('@/assets/LogoSmall.svg')"></e-navbar-right>
+    <e-navbar-right
+      :links="links"
+      :logo="require('@/assets/Logo.svg')"
+      :smallLogo="require('@/assets/LogoSmall.svg')"
+      @on:openMenu="openMenu"
+      @on:closeMenu="closeMenu"
+    ></e-navbar-right>
+
+    <div class="content-container" :class="{'menu-open': menuOpen}">
+      <slot name="content"></slot>
+    </div>
   </div>
 </template>
 
 <script>
-import BootstrapIcon from '@dvuckovic/vue3-bootstrap-icons'
+import BootstrapIcon from "@dvuckovic/vue3-bootstrap-icons";
+
 export default {
   name: "DefaultLayout",
   components: {
-    BootstrapIcon
+    BootstrapIcon,
   },
   data() {
     return {
@@ -30,27 +38,40 @@ export default {
         { name: "link 4", to: "/link-4" },
       ],
       styleConfig: {
-        backgroundColor: '#fff',
+        backgroundColor: "#fff",
         hover: {
-          backgroundColor: '#fff'
+          backgroundColor: "#fff",
         },
         active: {
-          backgroundColor: '#fff',
+          backgroundColor: "#fff",
         },
         disabled: {
-          backgroundColor: '#fff',
+          backgroundColor: "#fff",
         },
-      }
-    }
-  }
-}
+      },
+      menuOpen: true,
+    };
+  },
+  computed: {
+  },
+  methods: {
+    openMenu() {
+      this.menuOpen = true
+    },
+    closeMenu() {
+      this.menuOpen = false
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
-@import 'src/assets/variables';
+@import "src/assets/variables";
+
 .layout-container {
-  //width: 100%;
-  //height: 100vh;
+  width: 100%;
+  height: 100vh;
+
   .page-header {
     width: 100%;
     height: 80px;
@@ -59,12 +80,19 @@ export default {
     justify-content: flex-end;
     align-items: center;
     padding-right: 20px;
+
     .button-icon {
       width: 14px;
       height: 16px;
       color: $gray-800;
     }
   }
+  .content-container {
+    margin-left: 66px;
+    transition: all 0.3s ease-in-out;
+  }
+  .content-container.menu-open {
+    margin-left: 250px;
+  }
 }
-
 </style>

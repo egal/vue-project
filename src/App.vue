@@ -1,6 +1,8 @@
 <template>
 <component :is="layout">
-  <router-view />
+  <template v-slot:content>
+    <router-view />
+  </template>
 </component>
 </template>
 
