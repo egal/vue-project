@@ -1,36 +1,26 @@
 <template>
-  <div id="app">
-    <router-view />
-  </div>
+<component :is="layout">
+  <router-view />
+</component>
 </template>
+
 <script>
-export default {
-  name: 'App',
-  data() {
-    return {};
-  },
-  computed: {},
-};
-</script>
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+import { defineComponent } from "vue";
+export default defineComponent({
+  name: "App",
+  components: {},
+  computed: {
+    layout() {
+      return (this.$route.meta.layout || 'default-layout')
     }
   }
+});
+</script>
+
+<style lang="scss">
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 </style>
