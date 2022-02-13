@@ -20,9 +20,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@import 'src/assets/variables';
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: $open-sans-font;
+}
+h5 {
+  font-size: $h5-font-size;
+  font-weight: $h5-font-style;
 }
 </style>
