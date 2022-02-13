@@ -14,46 +14,45 @@
       @on:closeMenu="closeMenu"
     ></e-navbar-right>
 
-    <div class="content-container" :class="{'menu-open': menuOpen}">
+    <div class="content-container" :class="{ 'menu-open': menuOpen }">
       <slot name="content"></slot>
     </div>
   </div>
 </template>
 
 <script>
-import BootstrapIcon from "@dvuckovic/vue3-bootstrap-icons";
+import BootstrapIcon from '@dvuckovic/vue3-bootstrap-icons'
 
 export default {
-  name: "DefaultLayout",
+  name: 'DefaultLayout',
   components: {
     BootstrapIcon,
   },
   data() {
     return {
       links: [
-        { name: "home", to: "/" },
-        { name: "link 1", to: "/link-1" },
-        { name: "link 2", to: "/link-2" },
-        { name: "link 3", to: "/link-3" },
-        { name: "link 4", to: "/link-4" },
+        { name: 'home', to: '/' },
+        { name: 'link 1', to: '/link-1' },
+        { name: 'link 2', to: '/link-2' },
+        { name: 'link 3', to: '/link-3' },
+        { name: 'link 4', to: '/link-4' },
       ],
       styleConfig: {
-        backgroundColor: "#fff",
+        backgroundColor: '#fff',
         hover: {
-          backgroundColor: "#fff",
+          backgroundColor: '#fff',
         },
         active: {
-          backgroundColor: "#fff",
+          backgroundColor: '#fff',
         },
         disabled: {
-          backgroundColor: "#fff",
+          backgroundColor: '#fff',
         },
       },
       menuOpen: true,
-    };
+    }
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     openMenu() {
       this.menuOpen = true
@@ -62,11 +61,11 @@ export default {
       this.menuOpen = false
     },
   },
-};
+}
 </script>
 
 <style scoped lang="scss">
-@import "src/assets/variables";
+@import 'src/assets/variables';
 
 .layout-container {
   width: 100%;

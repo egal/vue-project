@@ -1,22 +1,22 @@
 <template>
-<component :is="layout">
-  <template v-slot:content>
-    <router-view />
-  </template>
-</component>
+  <component :is="layout">
+    <template v-slot:content>
+      <router-view />
+    </template>
+  </component>
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 export default defineComponent({
-  name: "App",
+  name: 'App',
   components: {},
   computed: {
     layout() {
-      return (this.$route.meta.layout || 'default-layout')
-    }
-  }
-});
+      return this.$route.meta.layout || 'default-layout'
+    },
+  },
+})
 </script>
 
 <style lang="scss">
