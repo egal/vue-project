@@ -1,4 +1,4 @@
-export const styleConfig = {
+export const inputStyleConfig = {
   fontFamily: 'Open Sans',
   valueColor: '#2d3748',
   valueFontWeight: 500,

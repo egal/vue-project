@@ -1,8 +1,8 @@
-export const styleConfig = {
+export const counterStyleConfig = {
   fontFamily: 'Open Sans',
   valueColor: '#718096',
   valueFontWeight: 700,
-  labelColor: '#4a5568',
+  labelColor: 'red',
   labelFontWeight: 500,
   helperTextColor: '#a0aec0',
   helperTextFontWeight: 500,

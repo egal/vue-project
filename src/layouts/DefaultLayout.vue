@@ -1,10 +1,14 @@
 <template>
   <div class="layout-container">
     <div class="page-header">
-      <e-button size="sm" rounded="true" :style-config="styleConfig">
+      <e-button size="sm" :rounded="true" :style-config="styleConfig">
         <BootstrapIcon class="button-icon" icon="bell"></BootstrapIcon>
       </e-button>
-      <e-avatar name="user name" bgColor="#A0AEC0" isOnline="true"></e-avatar>
+      <e-avatar
+        :name="'user name'"
+        bgColor="#A0AEC0"
+        :isOnline="true"
+      ></e-avatar>
     </div>
     <e-navbar-right
       :links="links"

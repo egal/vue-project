@@ -8,11 +8,30 @@
 
 <script>
 import { defineComponent } from 'vue'
+import axios from 'axios'
 export default defineComponent({
   name: 'App',
   components: {},
+  mounted() {
+    // this.getRequest()
+  },
+  methods: {
+    getRequest() {
+      let params = {
+        filter: [
+          {
+            field: 'foo',
+            operator: 'eq',
+            value: 'bar',
+          },
+        ],
+        scopes: ['foo', 'bar'],
+      }
+      axios.get('http://192.168.1.241/posts', { params: params })
+    },
+  },
   computed: {
-    layout() {
+    layout: function () {
       return this.$route.meta.layout || 'default-layout'
     },
   },

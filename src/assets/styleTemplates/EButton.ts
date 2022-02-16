@@ -1,4 +1,4 @@
-export const styleConfig = {
+export const buttonStyleConfig = {
   backgroundColor: 'red',
   hover: {
     backgroundColor: 'green',

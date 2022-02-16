@@ -1,4 +1,4 @@
-export const styleConfig = {
+export const fileUploaderStyleConfig = {
   fontFamily: 'Open Sans',
   fileBackgroundColor: '#f7fafc',
   fileBorderRadius: '4px',

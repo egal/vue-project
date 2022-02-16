@@ -1,4 +1,4 @@
-export const styleConfig = {
+export const textAreaStyleConfig = {
   fontFamily: 'Open Sans',
   valueColor: '#a0aec0',
   valueFontWeight: 500,

@@ -1,4 +1,4 @@
-export const styleConfig = {
+export const dropdownStyleConfig = {
   fontFamily: 'Open Sana',
   optionColor: '#2d3748',
   optionHoverBackgroundColor: '#edf2f7',
