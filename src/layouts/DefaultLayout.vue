@@ -1,14 +1,10 @@
 <template>
   <div class="layout-container">
     <div class="page-header">
-      <e-button size="sm" :rounded="true" :style-config="styleConfig">
+      <e-button :style-config="styleConfig">
         <BootstrapIcon class="button-icon" icon="bell"></BootstrapIcon>
       </e-button>
-      <e-avatar
-        :name="'user name'"
-        bgColor="#A0AEC0"
-        :isOnline="true"
-      ></e-avatar>
+      <e-avatar :data="avatarData"></e-avatar>
     </div>
     <e-navbar-right
       :links="links"
@@ -34,6 +30,15 @@ export default {
   },
   data() {
     return {
+      avatarData: {
+        name: 'user name',
+        bgColor: '#A0AEC0',
+        isOnline: true,
+      },
+      buttonData: {
+        size: 'sm',
+        rounded: true,
+      },
       links: [
         { name: 'home', to: '/' },
         { name: 'link 1', to: '/link-1' },
@@ -90,10 +95,12 @@ export default {
       color: $gray-800;
     }
   }
+
   .content-container {
     margin-left: 66px;
     transition: all 0.3s ease-in-out;
   }
+
   .content-container.menu-open {
     margin-left: 250px;
   }

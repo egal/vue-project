@@ -3,13 +3,9 @@
     <div class="user-info-container">
       <h5>{{ userInfoHeader }}</h5>
       <div class="user-avatar">
-        <e-avatar
-          size="xxl"
-          :imgUrl="require('../assets/avatar.svg')"
-          class="avatar"
-        ></e-avatar>
+        <e-avatar :data="avatarData" class="avatar"></e-avatar>
         <div class="edit-btn">
-          <e-button :data="buttonWidget">
+          <e-button :data="buttonData">
             <BootstrapIcon
               class="button-icon"
               icon="pencil-square"
@@ -58,12 +54,16 @@ export default {
   components: { BootstrapIcon },
   data() {
     return {
+      avatarData: {
+        size: 'xxl',
+        imgUrl: require('../assets/avatar.svg'),
+      },
       counterStyleConfig: counterStyleConfig,
       inputStyleConfig: inputStyleConfig,
       userInfoHeader: 'Основная информация',
       userJobInfoHeader: 'Информация по проекту',
       buttonStyleConfig: buttonStyleConfig,
-      buttonWidget: {
+      buttonData: {
         size: 'lg',
         softColors: true,
       },
