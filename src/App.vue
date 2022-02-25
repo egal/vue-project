@@ -9,25 +9,29 @@
 <script>
 import { defineComponent } from 'vue'
 import axios from 'axios'
+import variables from '@/assets/variables.scss'
 export default defineComponent({
   name: 'App',
   components: {},
+  data() {
+    return {}
+  },
   mounted() {
-    // this.getRequest()
+    this.getRequest()
   },
   methods: {
     getRequest() {
-      let params = {
-        filter: [
-          {
-            field: 'foo',
-            operator: 'eq',
-            value: 'bar',
-          },
-        ],
-        scopes: ['foo', 'bar'],
-      }
-      axios.get('http://192.168.1.241/posts', { params: params })
+      axios.get('http://localhost/interface-metadata').then((response) => {
+        console.log(response)
+        this.setCssVariables(response.data.app)
+      })
+    },
+    setCssVariables(vars) {
+      let newVars = Object.assign(variables, {
+        ...vars.colors,
+        font: vars.font,
+      })
+      console.log(newVars)
     },
   },
   computed: {

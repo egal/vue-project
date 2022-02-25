@@ -7,13 +7,10 @@
       <e-avatar :data="avatarData"></e-avatar>
     </div>
     <e-navbar-right
-      :links="links"
-      :logo="require('@/assets/Logo.svg')"
-      :smallLogo="require('@/assets/LogoSmall.svg')"
+      :data="navbarData"
       @on:openMenu="openMenu"
       @on:closeMenu="closeMenu"
     ></e-navbar-right>
-
     <div class="content-container" :class="{ 'menu-open': menuOpen }">
       <slot name="content"></slot>
     </div>
@@ -30,6 +27,17 @@ export default {
   },
   data() {
     return {
+      navbarData: {
+        logo: require('@/assets/Logo.svg'),
+        smallLogo: require('@/assets/LogoSmall.svg'),
+        links: [
+          { name: 'home', to: '/' },
+          { name: 'link 1', to: '/link-1' },
+          { name: 'link 2', to: '/link-2' },
+          { name: 'link 3', to: '/link-3' },
+          { name: 'link 4', to: '/link-4' },
+        ],
+      },
       avatarData: {
         name: 'user name',
         bgColor: '#A0AEC0',
@@ -39,13 +47,6 @@ export default {
         size: 'sm',
         rounded: true,
       },
-      links: [
-        { name: 'home', to: '/' },
-        { name: 'link 1', to: '/link-1' },
-        { name: 'link 2', to: '/link-2' },
-        { name: 'link 3', to: '/link-3' },
-        { name: 'link 4', to: '/link-4' },
-      ],
       styleConfig: {
         backgroundColor: '#fff',
         hover: {

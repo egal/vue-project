@@ -8,11 +8,12 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@egalteam/framework": "^2.0.2",
+    "@egalteam/widget-library": "^1.0.0-beta.2",
     "axios": "^0.26.0",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0",
-    "@egalteam/framework": "^2.0.2"
+    "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
     "@dvuckovic/vue3-bootstrap-icons": "^1.0.4",

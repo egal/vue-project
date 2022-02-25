@@ -3,8 +3,8 @@ import App from './App.vue'
 import router from './router'
 import DefaultLayout from './layouts/DefaultLayout.vue'
 // @ts-ignore
-import egalWidgets from 'egal-widgets/dist/egal-widgets-build.umd.js'
-import 'egal-widgets/dist/style.css'
+import egalWidgets from '@egalteam/widget-library/dist/egal-widgets-build.umd.js'
+import '@egalteam/widget-library/dist/style.css'
 const app = createApp(App)
 app
   .use(router)
