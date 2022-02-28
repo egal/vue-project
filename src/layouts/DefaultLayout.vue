@@ -6,11 +6,11 @@
       </e-button>
       <e-avatar :data="avatarData"></e-avatar>
     </div>
-    <e-navbar-right
+    <e-navbar-left
       :data="navbarData"
       @on:openMenu="openMenu"
       @on:closeMenu="closeMenu"
-    ></e-navbar-right>
+    ></e-navbar-left>
     <div class="content-container" :class="{ 'menu-open': menuOpen }">
       <slot name="content"></slot>
     </div>
@@ -28,14 +28,32 @@ export default {
   data() {
     return {
       navbarData: {
-        logo: require('@/assets/Logo.svg'),
-        smallLogo: require('@/assets/LogoSmall.svg'),
+        logo: require('@/assets/logo.svg'),
+        smallLogo: require('@/assets/logo-sm.svg'),
         links: [
-          { name: 'home', to: '/' },
-          { name: 'link 1', to: '/link-1' },
-          { name: 'link 2', to: '/link-2' },
-          { name: 'link 3', to: '/link-3' },
-          { name: 'link 4', to: '/link-4' },
+          { name: 'home', to: '/', icon: 'house' },
+          { name: 'link 1', to: '/link-1', icon: 'balloon-heart' },
+          { name: 'link 2', to: '/link-2', icon: 'boombox' },
+          { name: 'link 3', to: '/link-3', icon: 'bug' },
+          {
+            name: 'link 4',
+            to: '/link-4',
+            icon: 'camera',
+            links: [
+              { name: 'link 1', to: '/link-1', icon: 'balloon-heart' },
+              { name: 'link 2', to: '/link-2', icon: 'boombox' },
+              {
+                name: 'link 3',
+                to: '/link-3',
+                icon: 'bug',
+                links: [
+                  { name: 'link 1', to: '/link-1', icon: 'balloon-heart' },
+                  { name: 'link 2', to: '/link-2', icon: 'boombox' },
+                  { name: 'link 3', to: '/link-3', icon: 'bug' },
+                ],
+              },
+            ],
+          },
         ],
       },
       avatarData: {
