@@ -10,6 +10,7 @@
       :data="navbarData"
       @on:openMenu="openMenu"
       @on:closeMenu="closeMenu"
+      :style-config="sidebarStyleConfig"
     ></e-navbar-left>
     <div class="content-container" :class="{ 'menu-open': menuOpen }">
       <slot name="content"></slot>
@@ -20,6 +21,7 @@
 <script>
 import BootstrapIcon from '@dvuckovic/vue3-bootstrap-icons'
 
+import { sidebarStyleConfig } from '@/assets/styleTemplates/ESidebar'
 export default {
   name: 'DefaultLayout',
   components: {
@@ -27,6 +29,7 @@ export default {
   },
   data() {
     return {
+      sidebarStyleConfig: sidebarStyleConfig,
       navbarData: {
         logo: require('@/assets/logo.svg'),
         smallLogo: require('@/assets/logo-sm.svg'),
