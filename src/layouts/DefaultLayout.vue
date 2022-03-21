@@ -32,8 +32,13 @@ export default {
         smallLogo: require('@/assets/logo-sm.svg'),
         links: [
           { name: 'home', to: '/', icon: 'house' },
-          { name: 'link 1', to: '/link-1', icon: 'balloon-heart' },
-          { name: 'link 2', to: '/link-2', icon: 'boombox' },
+          { name: 'user profile', to: '/user-profile', icon: 'balloon-heart' },
+          {
+            name: 'user',
+            to: '/user',
+            icon: 'boombox',
+            links: [{ name: 'userChild', to: '/user_child', icon: 'boombox' }],
+          },
           { name: 'link 3', to: '/link-3', icon: 'bug' },
           {
             name: 'link 4',

@@ -4,6 +4,7 @@
       <router-view />
     </template>
   </component>
+  <ToasterContainer></ToasterContainer>
 </template>
 
 <script>
@@ -21,10 +22,16 @@ export default defineComponent({
   },
   methods: {
     getRequest() {
-      axios.get('http://localhost/interface-metadata').then((response) => {
-        console.log(response)
-        this.setCssVariables(response.data.app)
-      })
+      axios
+        .get('http://localhost/interface-metadata')
+        .then((response) => {
+          this.$toaster.info({ message: 'toaster' })
+          console.log(response)
+          this.setCssVariables(response.data.app)
+        })
+        .catch((error) => {
+          this.$toaster.info({ message: error })
+        })
     },
     setCssVariables(vars) {
       let newVars = Object.assign(variables, {

@@ -14,26 +14,61 @@
         </div>
       </div>
       <div class="user-info">
-        <div v-for="(widget, index) in userInfoWidgetSet" :key="index">
-          <e-widget
-            class="info-input"
-            :type="widget.type"
-            :data="widget.data"
-            :style-config="$data[widget.type + 'StyleConfig']"
-          ></e-widget>
-        </div>
+        <e-input
+          :data="{
+            modelValue: 'value',
+            iconLeft: 'search',
+            label: 'label',
+            helperText: 'helper text',
+            required: true,
+            showSuccess: true,
+          }"
+          :style-config="inputStyleConfig"
+          @update:modelValue="inputValue = $event"
+        ></e-input>
+        <e-select
+          :data="{
+            options: [
+              {
+                name: 'Option one',
+                key: 1,
+              },
+              {
+                name: 'Option two',
+                key: 2,
+              },
+              {
+                name: 'Option three',
+                key: 3,
+              },
+            ],
+            searchable: true,
+          }"
+          @update:modelValue="checkValue($event)"
+        ></e-select>
+        <e-button @click="update()">button</e-button>
+        <!--        <div v-for="(widget, index) in userInfoWidgetSet" :key="index">-->
+        <!--          <e-widget-->
+        <!--            class="info-input"-->
+        <!--            :type="widget.type"-->
+        <!--            :data="widget.data"-->
+        <!--            :style-config="$data[widget.type + 'StyleConfig']"-->
+        <!--          ></e-widget>-->
+        <!--        </div>-->
       </div>
       <div class="user-job-info">
         <h5>{{ userJobInfoHeader }}</h5>
-        <div v-for="(widget, index) in selectWidgetSet" :key="index">
-          <e-widget
-            class="info-input"
-            :type="widget.type"
-            :data="widget.data"
-            :style-config="$data[widget.type + 'StyleConfig']"
-          ></e-widget>
-        </div>
+        <!--        <div v-for="(widget, index) in selectWidgetSet" :key="index">-->
+        <!--          <e-widget-->
+        <!--            class="info-input"-->
+        <!--            :type="widget.type"-->
+        <!--            :data="widget.data"-->
+        <!--            :style-config="$data[widget.type + 'StyleConfig']"-->
+        <!--          ></e-widget>-->
+        <!--        </div>-->
       </div>
+      <!--      <EButton>Button</EButton>-->
+      <!--      <EFileUploader></EFileUploader>-->
     </div>
     <div class="user-stats">
       <div class="pie-chart">Pie chart</div>
@@ -48,16 +83,23 @@ import BootstrapIcon from '@dvuckovic/vue3-bootstrap-icons'
 import { buttonStyleConfig } from '@/assets/styleTemplates/EButton'
 import { counterStyleConfig } from '@/assets/styleTemplates/ECounter'
 import { inputStyleConfig } from '@/assets/styleTemplates/EInput'
-
-export default {
+// import { EButton, EFileUploader } from '@egalteam/widget-library'
+import { defineComponent } from 'vue'
+export default defineComponent({
   name: 'UserProfile',
   components: { BootstrapIcon },
   data() {
     return {
       avatarData: {
         size: 'xxl',
+        name: 'name',
         imgUrl: require('../assets/avatar.svg'),
       },
+      checkboxData: {
+        checked: true,
+      },
+      modelValue: 'value',
+      inputValue: 'input',
       counterStyleConfig: counterStyleConfig,
       inputStyleConfig: inputStyleConfig,
       userInfoHeader: 'Основная информация',
@@ -153,7 +195,18 @@ export default {
       ],
     }
   },
-}
+  methods: {
+    getValue(e) {
+      console.log(e)
+    },
+    update() {
+      console.log(this.inputValue)
+    },
+    checkValue(value) {
+      console.log(value)
+    },
+  },
+})
 </script>
 
 <style scoped lang="scss">

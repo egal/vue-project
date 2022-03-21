@@ -18,4 +18,5 @@ export const selectStyleConfig = {
   errorColor: '#f16063',
   arrowColor: '#cbd5e0',
   crossColor: '#a0aec0',
+  focusBoxShadow: '0px 0px 0px 2px rgba(76, 111, 255, 0.3)',
 }
