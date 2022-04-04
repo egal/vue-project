@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@egalteam/framework": "^2.0.2",
-    "@egalteam/widget-library": "^1.0.0-beta.2",
+    "@egalteam/widget-library": "^1.0.0-beta.13",
     "@ulissesferreira/moon": "^0.4.1",
     "axios": "^0.26.0",
     "core-js": "^3.6.5",

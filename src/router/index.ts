@@ -1,14 +1,14 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    name: 'Home',
-    meta: {
-      breadcrumb: { name: 'home', link: '' },
-    },
-    component: () => import('../views/Home.vue'),
-  },
+  // {
+  //   path: '/',
+  //   name: 'Home',
+  //   meta: {
+  //     breadcrumb: { name: 'home', link: '' },
+  //   },
+  //   component: () => import('../views/Home.vue'),
+  // },
   {
     path: '/user-profile',
     name: 'UserProfile',
